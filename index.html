@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Inspection</title>
+  <style>
+    /* Define your CSS styles here */
+
+    .icon {
+      width: 60px; /* Adjust the width as needed */
+      height: 60px; /* Adjust the height as needed */
+      margin-right: 20px; /* Adjust spacing between icon and text */
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 24px; /* Adjust the font size as needed */
+      line-height: 30px;
+      color: #2C2C36;
+    }
+
+    .description {
+      font-size: 18px; /* Adjust the font size as needed */
+      line-height: 30px;
+      color: #2C2C36;
+    }
+
+    ul {
+      margin-top: 10px;
+      list-style-type: disc;
+    }
+
+    li {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+<?php
+    // Read the JSON data from the file
+    $jsonData = file_get_contents('data.json');
+
+    // Decode the JSON data into an associative array
+    $data = json_decode($jsonData, true);
+
+    // Iterate through each data entry and create blocks
+    foreach ($data as $entry) {
+        // Extract information from the JSON entry
+        $icon = 'path_to_your_icons/' . $entry['icon'];
+        $title = $entry['title'];
+        $description = $entry['description'];
+        $bulletpoints = $entry['bulletpoints'];
+
+        // Output HTML for the block
+        echo '<div class="block">';
+echo '<img class="icon" src="' . $icon . '" alt="' . $title . '">';
+echo '<div>';
+  echo '<h2 class="title">' . $title . '</h2>';
+  echo '<p class="description">' . $description . '</p>';
+
+  // Output bulletpoints as an unordered list
+  echo '<ul>';
+    foreach ($bulletpoints as $point) {
+    echo '<li>' . $point . '</li>';
+    }
+    echo '</ul>';
+
+  echo '</div>';
+echo '</div>';
+}
+?>
+</body>
+</html>

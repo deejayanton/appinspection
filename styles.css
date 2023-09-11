@@ -1,0 +1,45 @@
+/* Reset some default margin and padding for better consistency */
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the card container */
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next row */
+    justify-content: space-between; /* Space evenly between cards */
+    padding: 20px; /* Add spacing around the cards */
+}
+
+/* Style individual cards */
+.card {
+    background-color: #fff; /* Card background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Card shadow */
+    border-radius: 4px; /* Rounded corners */
+    width: calc(33.33% - 20px); /* Adjust the width based on your layout */
+    margin-bottom: 20px; /* Add spacing between cards */
+    padding: 20px; /* Add padding inside the card */
+    display: flex;
+    align-items: center; /* Center content vertically */
+}
+
+/* Style the icon on the left */
+.card img {
+    max-width: 80px; /* Adjust the icon's max width as needed */
+    margin-right: 20px; /* Add spacing between icon and text */
+}
+
+/* Style the text on the right */
+.card-text {
+    flex-grow: 1; /* Allow the text to expand and fill available space */
+    font-size: 16px; /* Adjust text size as needed */
+    color: #333; /* Text color */
+}
+
+/* Media query for responsive design */
+@media screen and (max-width: 768px) {
+    .card {
+        width: calc(50% - 20px); /* Adjust for smaller screens (2 cards per row) */
+    }
+}
